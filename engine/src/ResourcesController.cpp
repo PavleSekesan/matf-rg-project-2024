@@ -57,6 +57,7 @@ void ResourcesController::load_textures() {
                              .stem()
                              .string(), texture_entry.path());
     }
+    Mesh::reset_texture = m_textures["reset"]->id();
 }
 
 void ResourcesController::load_skyboxes() {

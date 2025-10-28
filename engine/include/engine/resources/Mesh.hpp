@@ -30,6 +30,7 @@ struct Vertex {
 */
 class Mesh {
     friend class AssimpSceneProcessor;
+    friend class ResourcesController;
 
 public:
 
@@ -57,6 +58,7 @@ private:
     uint32_t m_vao{0};
     uint32_t m_num_indices{0};
     std::vector<Texture *> m_textures;
+    static unsigned int reset_texture;
 };
 } // namespace engine
 
