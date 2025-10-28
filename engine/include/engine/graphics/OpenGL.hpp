@@ -87,6 +87,8 @@ public:
     */
     static int32_t texture_format(int32_t number_of_channels);
 
+    static int32_t texture_internal_format(int32_t number_of_channels);
+
     /**
     * @brief Initializes the cube Vertex Array Object used for skybox drawing. Caches the vao result.
     * @returns VAO of the cube used for skybox drawing.

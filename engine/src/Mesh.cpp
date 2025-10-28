@@ -6,6 +6,8 @@
 
 namespace engine::resources {
 
+unsigned int Mesh::reset_texture;
+
 Mesh::Mesh(const std::vector<Vertex> &vertices, const std::vector<uint32_t> &indices,
            std::vector<Texture *> textures) {
     // NOLINTBEGIN
@@ -61,6 +63,10 @@ void Mesh::draw(const Shader *shader) {
     glBindVertexArray(m_vao);
     glDrawElements(GL_TRIANGLES, m_num_indices, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+    for (int i = 0; i < m_textures.size(); i++) {
+        glActiveTexture(GL_TEXTURE0 + i);
+        glBindTexture(GL_TEXTURE_2D, reset_texture);
+    }
 }
 
 void Mesh::destroy() {

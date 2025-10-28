@@ -1,0 +1,60 @@
+# Blender 4.0.2 MTL File: 'None'
+# www.blender.org
+
+newmtl Face
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd Face_baseColor.png
+# map_Bump -bm 1.000000 Face_normal.png
+
+newmtl Facial_Hair_Cards
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd Facial_Hair_Cards_baseColor.png
+#map_d Facial_Hair_Cards_baseColor.png
+#map_Bump -bm 1.000000 Facial_Hair_Cards_normal.png
+
+newmtl JacketGloves
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd JacketGloves_baseColor.png
+# map_Bump -bm 1.000000 JacketGloves_normal.png
+
+newmtl NewFur
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd NewFur_baseColor.png
+#map_d NewFur_baseColor.png
+#map_Bump -bm 1.000000 NewFur_normal.png
+
+newmtl TrousersHatBoots
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd TrousersHatBoots_baseColor.png
+#map_Bump -bm 1.000000 TrousersHatBoots_normal.png

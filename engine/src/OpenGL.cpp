@@ -31,9 +31,10 @@ uint32_t OpenGL::generate_texture(const std::filesystem::path &path, bool flip_u
     };
     if (data) {
         int32_t format = texture_format(nr_components);
+        int32_t internal_format = texture_internal_format(nr_components);
 
         CHECKED_GL_CALL(glBindTexture, GL_TEXTURE_2D, texture_id);
-        CHECKED_GL_CALL(glTexImage2D, GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        CHECKED_GL_CALL(glTexImage2D, GL_TEXTURE_2D, 0, internal_format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
         CHECKED_GL_CALL(glGenerateMipmap, GL_TEXTURE_2D);
 
         CHECKED_GL_CALL(glTexParameteri, GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
@@ -52,6 +53,15 @@ int32_t OpenGL::texture_format(int32_t number_of_channels) {
         case 1: return GL_RED;
         case 3: return GL_RGB;
         case 4: return GL_RGBA;
+        default: RG_SHOULD_NOT_REACH_HERE("Unknown channels {}", number_of_channels);
+    }
+}
+
+int32_t OpenGL::texture_internal_format(int32_t number_of_channels) {
+    switch (number_of_channels) {
+        case 1: return GL_RED;
+        case 3: return GL_SRGB;
+        case 4: return GL_SRGB_ALPHA;
         default: RG_SHOULD_NOT_REACH_HERE("Unknown channels {}", number_of_channels);
     }
 }
@@ -153,7 +163,8 @@ uint32_t OpenGL::load_skybox_textures(const std::filesystem::path &path, bool fl
                                         .stem()
                                         .c_str());
             int32_t format = texture_format(nr_channels);
-            CHECKED_GL_CALL(glTexImage2D, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, width, height, 0, format,
+            int32_t internal_format = texture_internal_format(nr_channels);
+            CHECKED_GL_CALL(glTexImage2D, GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, internal_format, width, height, 0, format,
                             GL_UNSIGNED_BYTE,
                             data);
         } else {
