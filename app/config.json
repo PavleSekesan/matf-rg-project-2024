@@ -1,11 +1,31 @@
 {
   "resources": {
     "models": {
+      "light": {
+        "path": "light/cube.obj",
+        "flip_uvs": false
+      },
+      "terrain": {
+        "path": "mountain/mountain.obj",
+        "flip_uvs": true
+      },
+      "campfire": {
+        "path": "campfire/campfire.obj",
+        "flip_uvs": true
+      },
+      "explorer": {
+        "path": "explorer/explorer.obj",
+        "flip_uvs": true
+      },
+      "polarbear": {
+        "path": "polarbear/polarbear.obj",
+        "flip_uvs": true
+      }
     }
   },
   "window": {
     "height": 600,
-    "title": "Hello, window!",
+    "title": "Alpine encounter",
     "width": 800
   }
 }
