@@ -16,4 +16,13 @@ void Model::destroy() {
         mesh.destroy();
     }
 }
+
+bool Model::collides_with_ray(glm::vec3 orig, glm::vec3 dir) const {
+    for (auto &mesh: m_meshes) {
+        if (mesh.collides_with_ray(orig, dir))
+            return true;
+    }
+    return false;
+}
+
 }

@@ -25,6 +25,8 @@ public:
     */
     void draw(const Shader *shader);
 
+    bool collides_with_ray(glm::vec3 orig, glm::vec3 dir) const;
+
     /**
     * @brief Destroys the model in the OpenGL context.
     */

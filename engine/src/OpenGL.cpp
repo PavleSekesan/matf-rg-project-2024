@@ -178,6 +178,20 @@ void OpenGL::disable_depth_testing() {
     CHECKED_GL_CALL(glDisable, GL_DEPTH_TEST);
 }
 
+void OpenGL::enable_stencil_testing() {
+    CHECKED_GL_CALL(glEnable, GL_STENCIL_TEST);
+    CHECKED_GL_CALL(glStencilOp, GL_KEEP, GL_KEEP, GL_REPLACE);
+}
+
+void OpenGL::setup_stencil(bool test, int ref, int mask) {
+    if (test) {
+        CHECKED_GL_CALL(glStencilFunc, GL_NOTEQUAL, ref, 0xFF);
+    } else {
+        CHECKED_GL_CALL(glStencilFunc, GL_ALWAYS, ref, 0xFF);
+    }
+    CHECKED_GL_CALL(glStencilMask, mask);
+}
+
 void OpenGL::clear_buffers() {
     CHECKED_GL_CALL(glClear, GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 }

@@ -1,7 +1,10 @@
-#include <imgui.h>
-#include <engine/core/Engine.hpp>
+#include "app/MainController.hpp"
+
+
 #include <app/GUIController.hpp>
+#include <engine/core/Engine.hpp>
 #include <engine/graphics/GraphicsController.hpp>
+#include <imgui.h>
 
 namespace engine::test::app {
 void GUIController::initialize() {
@@ -19,6 +22,7 @@ void GUIController::poll_events() {
 void GUIController::draw() {
     auto graphics = engine::core::Controller::get<engine::graphics::GraphicsController>();
     auto camera = engine::core::Controller::get<engine::graphics::GraphicsController>()->camera();
+    auto main = engine::core::Controller::get<MainController>();
     graphics->begin_gui();
     // Draw backpack scale slider window
     // auto backpack  = engine::core::Controller::get<engine::resources::ResourcesController>()->model("backpack");
@@ -40,6 +44,8 @@ void GUIController::draw() {
                                                .x, c.Front
                                                     .y, c.Front
                                                          .z);
+    ImGui::RadioButton("Cube", (int*)&main->m_selected_shape, Cube);
+    ImGui::RadioButton("Sphere", (int*)&main->m_selected_shape, Sphere);
     ImGui::End();
     graphics->end_gui();
 }

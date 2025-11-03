@@ -44,6 +44,8 @@ public:
     */
     void destroy();
 
+    bool collides_with_ray(glm::vec3 orig, glm::vec3 dir) const;
+
 private:
     /**
     * @brief Constructs a Mesh object.
@@ -54,9 +56,13 @@ private:
     Mesh(const std::vector<Vertex> &vertices, const std::vector<uint32_t> &indices,
          std::vector<Texture *> textures);
 
+    static bool triangle_collides_with_ray(glm::vec3 orig, glm::vec3 dir,  glm::vec3 v0, glm::vec3 v1, glm::vec3 v2) ;
+
     uint32_t m_vao{0};
     uint32_t m_num_indices{0};
     std::vector<Texture *> m_textures;
+    std::vector<Vertex> m_vertices;
+    std::vector<uint32_t> m_indices;
 };
 } // namespace engine
 
