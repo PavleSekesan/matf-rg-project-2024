@@ -129,6 +129,9 @@ public:
     */
     static void disable_depth_testing();
 
+    static void enable_stencil_testing();
+    static void setup_stencil(bool test, int ref, int mask);
+
     /**
     * @brief Clears GL_DEPTH_BUFFER_BIT, GL_COLOR_BUFFER_BIT, and GL_STENCIL_BUFFER_BIT.
     */
